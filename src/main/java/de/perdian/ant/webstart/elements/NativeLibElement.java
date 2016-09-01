@@ -29,7 +29,7 @@ public class NativeLibElement implements ConfigurationElement {
 
   @Override
   public void appendXml(JnlpTask task, Element parentElement) {
-    Element nativeLibElement = ConfigurationHelper.appendElement(parentElement, "native-lib");
+    Element nativeLibElement = ConfigurationHelper.appendElement(parentElement, "nativelib");
     ConfigurationHelper.appendAttributeIfNotNull(nativeLibElement, "href", this.getHref());
     ConfigurationHelper.appendAttributeIfNotNull(nativeLibElement, "version", this.getVersion());
     ConfigurationHelper.appendAttributeIfNotNull(nativeLibElement, "download", this.getDownload());
