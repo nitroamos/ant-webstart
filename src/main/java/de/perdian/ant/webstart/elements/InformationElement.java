@@ -40,7 +40,7 @@ public class InformationElement implements ConfigurationElement {
   private List<DescriptionElement> myDescription = new ArrayList<DescriptionElement>();
   private List<IconElement> myIcon = new ArrayList<IconElement>();
   private OfflineAllowedElement myOfflineallowed = null;
-  private AssociationElement myAssociation = null;
+  private List<AssociationElement> myAssociation = new ArrayList<AssociationElement>();
   private ShortcutElement myShortcut = null;
   private RelatedContentElement myRelatedContent = null;
 
@@ -59,7 +59,7 @@ public class InformationElement implements ConfigurationElement {
     ConfigurationHelper.appendElements(task, informationElement, this.getDescription());
     ConfigurationHelper.appendElements(task, informationElement, this.getIcon());
     ConfigurationHelper.appendElement(task, informationElement, this.getOfflineallowed());
-    ConfigurationHelper.appendElement(task, informationElement, this.getAssociation());
+    ConfigurationHelper.appendElements(task, informationElement, this.getAssociation());
     ConfigurationHelper.appendElement(task, informationElement, this.getShortcut());
     ConfigurationHelper.appendElement(task, informationElement, this.getRelatedContent());
 
@@ -100,12 +100,11 @@ public class InformationElement implements ConfigurationElement {
   }
 
   public AssociationElement createAssociation() {
-    if(this.myAssociation == null) {
-      this.myAssociation = new AssociationElement();
-    }
-    return this.myAssociation;
+    AssociationElement AssociationElement = new AssociationElement();
+    this.getAssociation().add(AssociationElement);
+    return AssociationElement;
   }
-  public AssociationElement getAssociation() {
+  public List<AssociationElement> getAssociation() {
     return this.myAssociation;
   }
 
